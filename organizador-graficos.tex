@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{pgffor}
+\usepackage{pgfpages}
+\usepackage{pdfpages}
+
+
+\pgfpagesdeclarelayout{3 on 1}
+{
+	\edef\pgfpageoptionheight{\the\paperheight} 
+	\edef\pgfpageoptionwidth{\the\paperwidth}
+	\edef\pgfpageoptionborder{0pt}
+}
+{
+	\pgfpagesphysicalpageoptions
+	{%
+		logical pages=6,%
+		physical height=\pgfpageoptionheight,%
+		physical width=\pgfpageoptionwidth%
+	}
+	\pgfpageslogicalpageoptions{1}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.25\pgfphysicalwidth}{.83\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{2}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.75\pgfphysicalwidth}{.83\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{3}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.25\pgfphysicalwidth}{.50\pgfphysicalheight},%
+	}%
+	\pgfpageslogicalpageoptions{4}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.75\pgfphysicalwidth}{.50\pgfphysicalheight},%
+	}%
+	\pgfpageslogicalpageoptions{5}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.25\pgfphysicalwidth}{.17\pgfphysicalheight},%
+	}%
+	\pgfpageslogicalpageoptions{6}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.75\pgfphysicalwidth}{.17\pgfphysicalheight},%
+	}%
+}
+
+\pgfpagesuselayout{3 on 1}
+
+\begin{document}
+
+\foreach \n in {1,...,72}{ \includepdf[scale=0.99, pages=1,offset=-0cm -0cm]{graficos/Graph\n.pdf} }
+
+\end{document}
